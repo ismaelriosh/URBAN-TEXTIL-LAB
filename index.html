@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URBAN TEXTIL LAB | Full Package B2B</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <style>
+        /* --- VARIABLES & RESET --- */
+        :root {
+            --bg-white: #FFFFFF;
+            --bg-gray: #F5F5F5;
+            --text-black: #0A0A0A;
+            --accent-yellow: #FFD600;
+            --accent-blue: #0066FF;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-white);
+            color: var(--text-black);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+        ul { list-style: none; }
+
+        /* --- UTILIDADES --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            text-align: center;
+        }
+
+        .btn-black {
+            background-color: var(--text-black);
+            color: var(--bg-white);
+        }
+        .btn-black:hover {
+            background-color: var(--accent-blue);
+            color: var(--bg-white);
+        }
+
+        .btn-yellow {
+            background-color: var(--accent-yellow);
+            color: var(--text-black);
+            width: 100%;
+        }
+        .btn-yellow:hover {
+            background-color: #e6c200;
+        }
+        
+        .btn-outline {
+            border: 2px solid var(--text-black);
+            color: var(--text-black);
+            background: transparent;
+        }
+        .btn-outline:hover {
+             background: var(--text-black);
+             color: var(--bg-white);
+        }
+
+        .section-padding { padding: 100px 0; }
+        .no-padding-bottom { padding-bottom: 0; }
+        
+        /* Títulos */
+        h1, h2, h3 { font-weight: 900; text-transform: uppercase; letter-spacing: -0.5px; }
+        .text-yellow { color: var(--accent-yellow); }
+        .text-blue { color: var(--accent-blue); }
+        
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-blue);
+            margin-bottom: 16px;
+            display: block;
+        }
+        
+        .phone-link:hover {
+            color: var(--accent-blue);
+            text-decoration: underline;
+        }
+
+        /* --- NAVBAR --- */
+        header {
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 900;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            letter-spacing: -1px;
+        }
+        .logo-icon {
+            background: var(--text-black);
+            color: var(--accent-yellow);
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            font-weight: 900;
+        }
+
+        .nav-links { display: flex; gap: 30px; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; }
+        .nav-links a:hover { color: var(--accent-blue); }
+
+        /* --- HERO --- */
+        .hero {
+            padding: 80px 0 100px;
+            background: var(--bg-white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .hero-content h1 {
+            font-size: 4.5rem;
+            line-height: 0.95;
+            margin-bottom: 24px;
+        }
+        
+        .hero-image-container {
+            height: 600px;
+            position: relative;
+            background: var(--text-black);
+        }
+        
+        .hero-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Filtro ligero para dar look industrial */
+            filter: grayscale(10%) contrast(105%); 
+        }
+        
+        .hero-accent {
+            position: absolute;
+            border: 3px solid var(--accent-yellow);
+            width: 120px;
+            height: 120px;
+            bottom: -20px;
+            left: -20px;
+            z-index: 2;
+        }
+
+        .stats-bar {
+            display: flex;
+            gap: 40px;
+            margin-top: 50px;
+            border-top: 2px solid var(--text-black);
+            padding-top: 30px;
+        }
+        .stat-item h4 { font-size: 1.8rem; font-weight: 900; }
+        .stat-item p { font-size: 0.7rem; text-transform: uppercase; color: #666; letter-spacing: 1px; font-weight: 700; }
+
+        /* --- VALUE PROP --- */
+        .value-prop { text-align: center; }
+        .value-prop h2 { font-size: 3rem; margin-bottom: 16px; }
+        .subtitle { max-width: 600px; margin: 0 auto 60px; color: #555; font-size: 1.1rem;}
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--bg-white);
+            padding: 40px 30px;
+            text-align: left;
+            border: 1px solid #eee;
+            transition: var(--transition);
+        }
+        .card:hover {
+            border-color: var(--text-black);
+            box-shadow: 10px 10px 0px var(--accent-yellow);
+            transform: translate(-5px, -5px);
+        }
+        
+        .card-icon {
+            font-size: 2rem;
+            color: var(--text-black);
+            margin-bottom: 15px;
+        }
+        
+        .card-stat {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--accent-blue);
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .card h3 { font-size: 1.1rem; margin-bottom: 10px; }
+
+        /* --- VISUAL ECSTASY GALLERY --- */
+        .gallery-section { background: var(--text-black); color: var(--bg-white); }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-auto-rows: 400px;
+            gap: 20px;
+        }
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            background: #222;
+        }
+        /* Hacemos que la primera ocupe 2 filas para dinamismo */
+        .gallery-item.large { grid-row: span 2; } 
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            opacity: 0.9;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.05);
+            opacity: 1;
+        }
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0; left: 0;
+            padding: 30px;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            width: 100%;
+        }
+        .gallery-overlay h3 { color: var(--bg-white); font-size: 1.5rem; }
+
+
+        /* --- SERVICIOS --- */
+        .services { background-color: var(--bg-white); }
+        .services-header h2 { font-size: 3rem; margin-bottom: 60px; }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+            border: 1px solid #eee;
+        }
+        
+        .service-item {
+            padding: 40px;
+            border-right: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            background: var(--bg-white);
+            transition: var(--transition);
+        }
+        .service-item:hover { background: var(--bg-gray); }
+
+        .service-number {
+            font-size: 4rem;
+            font-weight: 900;
+            color: #eee;
+            position: absolute;
+            top: 20px; right: 30px;
+            line-height: 1;
+        }
+        .service-icon-box {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .more-info {
+            color: var(--text-black);
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-top: 30px;
+            display: inline-block;
+            border-bottom: 2px solid var(--accent-yellow);
+        }
+
+        /* --- CONTACTO --- */
+        .contact { background-color: var(--bg-gray); }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .form-box {
+            background: var(--bg-white);
+            padding: 50px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            border-top: 5px solid var(--accent-yellow);
+        }
+        
+        .form-group { margin-bottom: 20px; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        
+        label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            display: block;
+            color: var(--text-black);
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #eee;
+            background: #fff;
+            font-size: 1rem;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: var(--text-black);
+        }
+        
+        .contact-info-list { margin-top: 50px; }
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .info-icon {
+            width: 40px; height: 40px;
+            background: var(--accent-blue);
+            color: var(--bg-white);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem;
+        }
+        .info-text p.label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: #666; margin-bottom: 5px; }
+        .info-text p.value { font-size: 1.1rem; font-weight: 800; }
+
+        /* --- FOOTER --- */
+        footer {
+            background: var(--text-black);
+            color: var(--bg-white);
+            padding: 80px 0 30px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 80px;
+        }
+        .footer-logo span { background: var(--accent-yellow); color: var(--text-black); padding: 4px 8px; }
+        .footer-col h5 { font-size: 1rem; margin-bottom: 25px; color: var(--bg-white); }
+        .footer-col ul li { margin-bottom: 15px; font-size: 0.95rem; color: #aaa; }
+        .footer-col ul li a:hover { color: var(--accent-yellow); }
+        .footer-bottom {
+            border-top: 1px solid #222;
+            padding-top: 30px;
+            font-size: 0.85rem;
+            color: #666;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-grid, .contact-grid, .services-grid, .footer-grid, .form-row, .gallery-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; } 
+            h1 { font-size: 3rem; }
+            .hero-content h1 { font-size: 3rem; }
+            .value-prop h2 { font-size: 2.2rem; }
+            .hero-image-container { height: 400px; margin-top: 40px; }
+            .gallery-item.large { grid-row: span 1; }
+            .gallery-grid { grid-auto-rows: 300px; }
+            .section-padding { padding: 60px 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <span class="logo-icon">U</span> URBAN TEXTIL LAB
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#galeria">Work</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+                <a href="https://wa.me/5215540161213?text=Hola%20Urban%20Textil%20Lab,%20quiero%20iniciar%20un%20proyecto." target="_blank" class="btn btn-black">Iniciar Proyecto ↗</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <span class="section-label">Fabricación Integral B2B</span>
+                    <h1>URBAN <br>TEXTIL <span class="text-yellow">LAB.</span></h1>
+                    <p style="margin-bottom: 40px; color: #555; font-size: 1.1rem; max-width: 500px;">Ingeniería de moda y manufactura de alto volumen. Del concepto a la tienda, sin fricciones.</p>
+                    
+                    <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                        <a href="https://wa.me/5215540161213?text=Hola,%20me%20interesa%20solicitar%20muestras." target="_blank" class="btn btn-yellow" style="width: auto; padding: 15px 30px;">Solicitar Muestras Vía WhatsApp ↗</a>
+                        <a href="#servicios" class="btn btn-outline">Ver Proceso</a>
+                    </div>
+
+                    <div class="stats-bar">
+                        <div class="stat-item">
+                            <h4>15+</h4>
+                            <p>Años Exp.</p>
+                        </div>
+                        <div class="stat-item">
+                            <h4>Industrial</h4>
+                            <p>Capacidad</p>
+                        </div>
+                        <div class="stat-item">
+                            <h4>48H</h4>
+                            <p>Respuesta</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-image-container">
+                    <div class="hero-accent"></div>
+                    <img src="gallery_1.jpg" alt="Urban Textil Lab Fashion Hero">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding value-prop no-padding-bottom">
+        <div class="container">
+            <span class="section-label">Propuesta de Valor</span>
+            <h2>ESCALABILIDAD <br><span class="text-yellow">INDUSTRIAL</span></h2>
+            <p class="subtitle">Estructura de costos y producción diseñada para marcas que buscan dominar el mercado retail.</p>
+
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon">⚡</div>
+                    <span class="card-stat">-30%</span>
+                    <h3>Optimización de Costos</h3>
+                    <p>Procesos lean que reducen desperdicios y mejoran tu margen final.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🚀</div>
+                    <span class="card-stat text-blue">Speed</span>
+                    <h3>Time-to-Market</h3>
+                    <p>Ciclos de producción acelerados para responder a tendencias.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">💎</div>
+                    <span class="card-stat">AAA</span>
+                    <h3>Calidad Exportación</h3>
+                    <p>Estándares internacionales y control de calidad riguroso.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="galeria" class="section-padding gallery-section">
+        <div class="container">
+            <div style="margin-bottom: 40px;">
+               <span class="section-label" style="color: var(--accent-yellow);">Nuestro ADN</span>
+               <h2 style="color: var(--bg-white);">VISUAL <span class="text-blue">STATEMENT.</span></h2>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item large">
+                    <img src="gallery_2.jpg" alt="Moda Urbana Large">
+                    <div class="gallery-overlay">
+                        <h3>COLLECTIONS</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="gallery_3.jpg" alt="Confección detalle">
+                    <div class="gallery-overlay">
+                        <h3>PRECISIÓN</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="gallery_4.jpg" alt="Texturas">
+                    <div class="gallery-overlay">
+                        <h3>TEXTURAS</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicios" class="section-padding services">
+        <div class="container">
+            <span class="section-label">Proceso Full Package</span>
+            <div class="services-header">
+                <h2>SOLUCIÓN <br>360° <span class="text-yellow">END-TO-END</span></h2>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-item">
+                    <span class="service-number">01</span>
+                    <div class="service-icon-box">📐</div>
+                    <h3>Diseño & Desarrollo</h3>
+                    <p style="color: #666; margin-top:15px;">Trend forecasting, diseño técnico, patronaje digital y prototipado rápido.</p>
+                    <a href="#contacto" class="more-info">Cotizar Desarrollo</a>
+                </div>
+                <div class="service-item">
+                    <span class="service-number">02</span>
+                    <div class="service-icon-box">🏭</div>
+                    <h3>Producción Industrial</h3>
+                    <p style="color: #666; margin-top:15px;">Corte automatizado, líneas de confección modulares y alta capacidad de volumen.</p>
+                    <a href="#contacto" class="more-info">Ver Capacidades</a>
+                </div>
+                <div class="service-item">
+                    <span class="service-number">03</span>
+                    <div class="service-icon-box">🏷️</div>
+                    <h3>Terminado & Logística</h3>
+                    <p style="color: #666; margin-top:15px;">Etiquetado, empaque personalizado (retail ready) y gestión de envíos.</p>
+                    <a href="#contacto" class="more-info">Opciones de Empaque</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="section-padding contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div>
+                    <span class="section-label">Contacto Directo</span>
+                    <h2 style="font-size: 2.5rem; margin-bottom: 20px;">HABLEMOS DE <br>TU PRÓXIMA <span class="text-blue">COLECCIÓN.</span></h2>
+                    <p style="margin-bottom: 40px; color: #555; font-size: 1.1rem;">Conecta directamente con nuestra área de nuevos negocios para evaluar tu proyecto.</p>
+                    
+                    <div class="contact-info-list">
+                        <div class="info-item">
+                            <div class="info-icon">📱</div>
+                            <div class="info-text">
+                                <p class="label">Línea Directa / WhatsApp</p>
+                                <p class="value"><a href="tel:+525540161213" class="phone-link">+52 (55) 4016-1213</a></p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">✉️</div>
+                            <div class="info-text">
+                                <p class="label">Email Corporativo</p>
+                                <p class="value">contacto@urbantextillab.com</p>
+                            </div>
+                        </div>
+                    </div>
+                     <a href="https://wa.me/5215540161213?text=Hola,%20quiero%20agendar%20una%20llamada." target="_blank" class="btn btn-yellow" style="width: auto;">Agendar Llamada por WhatsApp ↗</a>
+                </div>
+
+                <div class="form-box">
+                    <h3 style="margin-bottom: 25px;">Perfil de Proyecto</h3>
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Nombre *</label>
+                                <input type="text" placeholder="Tu nombre">
+                            </div>
+                            <div class="form-group">
+                                <label>Marca/Empresa *</label>
+                                <input type="text" placeholder="Tu marca">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Email *</label>
+                                <input type="email" placeholder="ejemplo@marca.com">
+                            </div>
+                            <div class="form-group">
+                                <label>Teléfono</label>
+                                <input type="tel" placeholder="+52...">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Interés Principal *</label>
+                            <select>
+                                <option>Seleccionar...</option>
+                                <option>Producción Full Package (+500 pzas)</option>
+                                <option>Desarrollo de Muestras</option>
+                                <option>Servicio de Maquila</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Detalles del proyecto</label>
+                            <textarea rows="4" placeholder="Cuéntanos más..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-black" style="width: 100%;">Enviar Perfil ↗</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo footer-logo" style="margin-bottom: 25px;">
+                        <span>U</span> URBAN TEXTIL LAB.
+                    </div>
+                    <p style="font-size: 0.9rem; color: #aaa; line-height: 1.6; max-width: 300px;">
+                        Socio estratégico para marcas de moda. Manufactura inteligente y soluciones integrales B2B.
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h5>NAVEGACIÓN</h5>
+                    <ul>
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#galeria">Work Gallery</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>LEGAL</h5>
+                    <ul>
+                        <li><a href="#">Aviso de Privacidad</a></li>
+                        <li><a href="#">Términos y Condiciones</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>CONTACTO DIRECTO</h5>
+                    <ul>
+                        <li><a href="tel:+525540161213" class="phone-link" style="font-weight: 800; color: var(--accent-yellow);">+52 (55) 4016-1213</a></li>
+                        <li>contacto@urbantextillab.com</li>
+                        <li style="margin-top: 20px;">CDMX, México.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Urban Textil Lab. All rights reserved.</p>
+                <p>Industrial Fashion Manufacturing.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
